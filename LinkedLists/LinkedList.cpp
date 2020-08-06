@@ -145,6 +145,32 @@ else{
     }
 }
 }
+void reverseList(){
+    Node* ptr=head;
+    Node* nextnode=NULL;
+    Node* previous=NULL;
+    while(ptr!=NULL){
+        nextnode=ptr->next;
+        ptr->next=previous;
+        previous=ptr;
+        ptr=nextnode;
+    }
+    head=previous;
+    cout<<"Linked list reversed"<<"\n";
+}
+void removeDuplicates(){
+    Node* ptr=head;
+    while(ptr->next->next!=NULL){
+        if(ptr->next->data==ptr->data){
+            ptr->next=ptr->next->next;
+            cout<<"Duplicate removed"<<"\n";
+        }
+        ptr=ptr->next;
+        if(ptr->next->next==NULL){
+            ptr->next=NULL;
+        }
+    }
+}
 
 };
 int main()
