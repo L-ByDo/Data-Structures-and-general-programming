@@ -191,6 +191,95 @@ int main()
     s.print();
     return 0;
 }
+/*// Online C++ compiler to run C++ online.
+// Write C++ code in this online editor and run it.
 
+#include <iostream>
+using namespace std;
+class Node{
+    public:
+    int data;
+    int key;
+    Node* next;
+    Node(){
+        next=NULL;
+    }
+};
+class CircularList{
+    public:
+    Node* head;
+    CircularList(){
+        head=NULL;
+    }
+    void insertNode(Node* n){
+                n->next=head;
+        if(head==NULL){
+            head=n;
+            cout<<" First Node inserted";
+
+        }
+        else{
+            Node* ptr=head;
+            while(ptr!=head){
+                ptr=ptr->next;
+            }
+            ptr->next=n;
+            cout<<"Node inserted";
+        }
+    }
+    void deleteNode(int d){
+        Node* ptr=head;
+        if(ptr->data==d){
+            if(ptr->next==NULL){
+                head=NULL;
+                cout<<"First deleted";
+            }
+            else{
+                while(ptr->next!=head){
+                    ptr=ptr->next;
+                }
+                ptr->next=head->next;
+                head=head->next;
+                cout<<"Node deleted";
+                
+            }
+        }
+        else{
+            Node* prev=head;
+            Node* ptr=head->next;
+            while(ptr->data!=d){
+                ptr=ptr->next;
+                prev=ptr;
+            }
+            prev->next=ptr->next;
+            cout<<"Node deleted";
+        }
+    }
+    void print(){
+        Node* ptr=head;
+        do{
+            cout<<ptr->data;
+            ptr=ptr->next;
+        }
+        while(ptr!=head);
+    }
+};
+int main() {
+Node* n1=new Node();
+n1->data=10;
+n1->key=1;
+Node* n2=new Node();
+n2->data=20;
+n2->key=2;
+Node* n3=new Node();
+n3->data=30;
+n3->key=3;
+CircularList c;
+c.insertNode(n1);
+c.insertNode(n2);
+c.insertNode(n3);
+c.deleteNode(30);
+c.print();
+}*/
 
 
